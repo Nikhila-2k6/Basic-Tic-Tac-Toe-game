@@ -65,10 +65,19 @@ const checkWinner=()=>{
             if(pos1Val===pos2Val && pos2Val===pos3Val){
                 console.log("winner",pos1Val);
                 showWinner(pos1Val);
+                disableBoxes();
+                return;
             }
         }
         
     }
+    let isDraw = [...boxes].every((box) => box.innerText !== "");
+
+if (isDraw) {
+    msg.innerText = "It's a Draw!";
+    msgContainer.classList.remove("hide");
+    disableBoxes();
+}
 
 };
 
